@@ -1,29 +1,29 @@
-import { BiSolidMoon, BiSolidSun } from 'react-icons/bi';
-import { Button } from '../ui/button';
-import { Form, FormControl, FormField } from '../ui/form';
-import { Input } from '../ui/input';
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { useTheme } from 'next-themes';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import type { FC } from "react";
+import { BiSolidMoon, BiSolidSun } from 'react-icons/bi'
+import { Button } from '../ui/button'
+import { Form, FormControl, FormField } from '../ui/form'
+import { Input } from '../ui/input'
+import { motion } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { useTheme } from 'next-themes'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import type { FC } from 'react'
 
-const form_schema = z.object({
-  search: z.string(),
-});
+const formSchema = z.object({
+  search: z.string()
+})
 
 const TopNavbar: FC = () => {
-  const { setTheme, theme } = useTheme();
-  const form = useForm<z.infer<typeof form_schema>>({
-    resolver: zodResolver(form_schema),
+  const { setTheme, theme } = useTheme()
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
-      search: "",
-    },
-  });
-  const onSubmit = (data: z.infer<typeof form_schema>) => {
-    console.log(data.search);
-  };
+      search: ''
+    }
+  })
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    console.log(data.search)
+  }
   return (
     <nav className="CONTAINER fixed left-0 right-0 top-0 z-10 h-12 border-b border-b-popover bg-secondary">
       <motion.div
@@ -52,10 +52,10 @@ const TopNavbar: FC = () => {
             variant="outline"
             className="bg-seconday text-secondary-foreground"
             onClick={() => {
-              setTheme(theme === "dark" ? "light" : "dark");
+              setTheme(theme === 'dark' ? 'light' : 'dark')
             }}
           >
-            {theme === "dark" ? <BiSolidSun /> : <BiSolidMoon />}
+            {theme === 'dark' ? <BiSolidSun /> : <BiSolidMoon />}
           </Button>
           <Button variant="outline" className="text-secondary-foreground">
             Login
@@ -64,7 +64,7 @@ const TopNavbar: FC = () => {
         </div>
       </motion.div>
     </nav>
-  );
-};
+  )
+}
 
-export default TopNavbar;
+export default TopNavbar

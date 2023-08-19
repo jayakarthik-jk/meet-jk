@@ -1,5 +1,5 @@
-const AttendedSessions = () => {
-  return <div>Attended</div>;
-};
+const AttendedSessionsPage = () => {
+  return <div>Attended</div>
+}
 
-export default AttendedSessions;
+export default AttendedSessionsPage

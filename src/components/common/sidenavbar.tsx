@@ -1,13 +1,14 @@
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Separator } from '@/components/ui/separator';
-import { useRouter } from 'next/router';
-import { type FC } from "react";
+import ArrowCrossIcon from './cross-icon'
+import Link from 'next/link'
+import { motion, useAnimate } from 'framer-motion'
+import { Separator } from '@/components/ui/separator'
+import { useRouter } from 'next/router'
+import { useState, type FC } from 'react'
 
 const SideNavbar: FC = () => {
-  const router = useRouter();
+  const router = useRouter()
   return (
-    <aside className="SIDEBAR fixed left-0 top-12 z-10 h-full w-1/6 bg-secondary">
+    <aside className="SIDEBAR fixed left-0 top-12 z-10 flex h-[calc(100%-3rem)] w-1/6 flex-col justify-between bg-secondary">
       <motion.div
         initial={{ x: -300 }}
         animate={{ x: 0, transition: { delay: 0.1 } }}
@@ -20,67 +21,72 @@ const SideNavbar: FC = () => {
                 {section.title}
               </span>
               {section.links.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`SECTION-LINK flex items-center justify-center rounded-lg p-1 text-center font-medium hover:bg-primary-foreground ${
-                    link.href === router.pathname
-                      ? "bg-primary-foreground text-primary"
-                      : "bg-secondary text-secondary-foreground"
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                <motion.div key={link.name} whileHover={{ scale: 1.1 }}>
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`SECTION-LINK flex items-center justify-center rounded-lg p-1 text-center font-medium hover:bg-primary-foreground ${
+                      link.href === router.pathname
+                        ? 'bg-primary-foreground text-primary'
+                        : 'bg-secondary text-secondary-foreground'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
             <Separator />
           </div>
         ))}
       </motion.div>
+      <div className="self-end px-4 py-2">
+        <ArrowCrossIcon />
+      </div>
     </aside>
-  );
-};
+  )
+}
 
-export default SideNavbar;
+export default SideNavbar
 
 const sections = [
   {
-    title: "Sessions",
+    title: 'Sessions',
     links: [
       {
-        name: "All",
-        href: "/all-sessions",
+        name: 'All',
+        href: '/sessions'
       },
       {
-        name: "Live",
-        href: "/live-sessions",
-      },
-    ],
+        name: 'Live',
+        href: '/live-sessions'
+      }
+    ]
   },
   {
-    title: "Your",
+    title: 'Your',
     links: [
       {
-        name: "Attended Sessions",
-        href: "/attended-sessions",
+        name: 'Attended Sessions',
+        href: '/attended-sessions'
       },
       {
-        name: "Profile",
-        href: "/profile",
-      },
-    ],
+        name: 'Profile',
+        href: '/profile'
+      }
+    ]
   },
   {
-    title: "Links",
+    title: 'Links',
     links: [
       {
-        name: "About",
-        href: "/about",
+        name: 'About',
+        href: '/about'
       },
       {
-        name: "Contact",
-        href: "/contact",
-      },
-    ],
-  },
-];
+        name: 'Contact',
+        href: '/contact'
+      }
+    ]
+  }
+]

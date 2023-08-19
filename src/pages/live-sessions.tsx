@@ -1,5 +1,5 @@
-const LiveSessions = () => {
-  return <div>live-sessions</div>;
-};
+const LiveSessionsPage = () => {
+  return <div>live-sessions</div>
+}
 
-export default LiveSessions;
+export default LiveSessionsPage

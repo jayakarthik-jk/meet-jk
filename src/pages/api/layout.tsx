@@ -1,13 +1,13 @@
-import Container from '@/components/common/container';
-import Head from 'next/head';
-import SideNavbar from '@/components/common/sidenavbar';
-import TopNavbar from '@/components/common/topnavbar';
-import { AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
-import type { FC, ReactNode } from "react";
+import Container from '@/components/common/container'
+import Head from 'next/head'
+import SideNavbar from '@/components/common/sidenavbar'
+import TopNavbar from '@/components/common/topnavbar'
+import { AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/router'
+import type { FC, ReactNode } from 'react'
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -25,7 +25,7 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

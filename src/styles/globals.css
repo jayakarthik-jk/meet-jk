@@ -67,3 +67,16 @@
     @apply m-0 min-w-[320px] overflow-x-hidden bg-background p-0 text-foreground;
   }
 }
+
+.cross-arrow-icon > .stroke {
+  transform-origin: bottom center;
+}
+.cross-arrow-icon.cross > .stroke-1 {
+  @apply rotate-[135deg] opacity-100 duration-300;
+}
+.cross-arrow-icon.cross > .stroke-2 {
+  @apply rotate-[-135deg] opacity-100 duration-300;
+}
+.cross-arrow-icon div {
+  @apply absolute h-full w-[2px];
+}
