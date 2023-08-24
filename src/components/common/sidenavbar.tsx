@@ -1,9 +1,8 @@
-import ArrowCrossIcon from './cross-icon'
 import Link from 'next/link'
-import { motion, useAnimate } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Separator } from '@/components/ui/separator'
 import { useRouter } from 'next/router'
-import { useState, type FC } from 'react'
+import { type FC } from 'react'
 
 const SideNavbar: FC = () => {
   const router = useRouter()
@@ -40,9 +39,6 @@ const SideNavbar: FC = () => {
           </div>
         ))}
       </motion.div>
-      <div className="self-end px-4 py-2">
-        <ArrowCrossIcon />
-      </div>
     </aside>
   )
 }
